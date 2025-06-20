@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
+
 def uppercase(str):
+    """Prints a string in uppercase followed by a new line."""
     result = ""
     for c in str:
         if 97 <= ord(c) <= 122:
@@ -8,8 +10,3 @@ def uppercase(str):
         else:
             result += c
     print("{}".format(result))
-
-
-# Example usage:
-uppercase("best")
-uppercase("Best School 98 Battery street")
