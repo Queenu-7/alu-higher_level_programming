@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-This module defines a Rectangle class with validated width and height attributes.
+This module defines a Rectangle class with
+validated width and height attributes.
 """
 
 
