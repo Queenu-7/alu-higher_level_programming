@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-This module defines a Rectangle class with validated width and height attributes,
-and provides methods to calculate area and perimeter.
+This module defines a Rectangle class with validated width and height
+attributes, and provides methods to calculate area and perimeter.
 """
 
 
@@ -71,7 +71,8 @@ class Rectangle:
         Calculate and return the perimeter of the rectangle.
 
         Returns:
-            int: The perimeter of the rectangle. Returns 0 if width or height is 0.
+            int: The perimeter of the rectangle. Returns 0 if width or
+            height is 0.
         """
         if self.__width == 0 or self.__height == 0:
             return 0
