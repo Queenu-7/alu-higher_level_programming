@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module defines a class Rectangle that represents a rectangle.
+This module defines a Rectangle class with validated width and height attributes.
 """
 
 
@@ -9,18 +9,28 @@ class Rectangle:
     Represents a rectangle with width and height.
 
     Attributes:
-        __width (int): width of the rectangle (private).
-        __height (int): height of the rectangle (private).
+        __width (int): The width of the rectangle (private).
+        __height (int): The height of the rectangle (private).
     """
 
     def __init__(self, width=0, height=0):
-        """Initialize a new Rectangle instance with optional width and height."""
+        """
+        Initialize a new Rectangle instance with optional width and height.
+
+        Args:
+            width (int): Width of the rectangle (default is 0).
+            height (int): Height of the rectangle (default is 0).
+
+        Raises:
+            TypeError: If width or height is not an integer.
+            ValueError: If width or height is less than 0.
+        """
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """Get the width of the rectangle."""
+        """Retrieve the width of the rectangle."""
         return self.__width
 
     @width.setter
@@ -34,7 +44,7 @@ class Rectangle:
 
     @property
     def height(self):
-        """Get the height of the rectangle."""
+        """Retrieve the height of the rectangle."""
         return self.__height
 
     @height.setter
