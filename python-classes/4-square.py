@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+This module defines a Square class that includes size validation,
+allows access and modification of the size attribute through
+property methods, and provides a method to calculate the area of the square.
+"""
 
 class Square:
     def __init__(self, size=0):
