@@ -4,6 +4,7 @@ This module defines a Square class that validates the size attribute,
 provides getter and setter methods for size, and calculates the area.
 """
 
+
 class Square:
     """
     Represents a square with a private size attribute.
