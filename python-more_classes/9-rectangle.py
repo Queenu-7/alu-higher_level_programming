@@ -132,7 +132,7 @@ class Rectangle:
         Returns:
             str: String in the format Rectangle(width, height).
         """
-        return f"Rectangle({self.width}, {self.height})"
+        return ("Rectangle({}, {})".format(self.width, self.height))
 
     def __del__(self):
         """
