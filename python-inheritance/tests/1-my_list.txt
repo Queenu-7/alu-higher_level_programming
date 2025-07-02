@@ -1,28 +1,65 @@
 #!/usr/bin/python3
+import io
+import sys
+import unittest
 MyList = __import__('1-my_list').MyList
 
-def test_print_sorted(capsys):
-    my_list = MyList()
-    my_list.append(5)
-    my_list.append(1)
-    my_list.append(3)
-    my_list.append(2)
-    my_list.append(4)
+class TestMyList(unittest.TestCase):
+    def test_inheritance(self):
+        """Test that MyList inherits from list"""
+        self.assertTrue(issubclass(MyList, list))
 
-    # Test that print_sorted prints sorted list
-    my_list.print_sorted()
-    captured = capsys.readouterr()
-    assert captured.out == "[1, 2, 3, 4, 5]\n"
+    def test_instantiation(self):
+        """Test that MyList can be instantiated"""
+        my_list = MyList()
+        self.assertIsInstance(my_list, MyList)
 
-    # Test that the original list is unchanged
-    assert my_list == [5, 1, 3, 2, 4]
+    def test_print_sorted_output(self):
+        """Test print_sorted prints sorted list without modifying original"""
+        my_list = MyList([3, 1, 2])
+        
+        # Capture printed output
+        captured = io.StringIO()
+        sys.stdout = captured
+        
+        my_list.print_sorted()
+        
+        sys.stdout = sys.__stdout__
+        output = captured.getvalue().strip()
+        
+        self.assertEqual(output, "[1, 2, 3]")
+        self.assertEqual(my_list, [3, 1, 2])  # Original list should be unchanged
 
-def test_inheritance():
-    my_list = MyList([10, 9, 8])
-    assert isinstance(my_list, list)
-    assert my_list == [10, 9, 8]
+    def test_print_sorted_empty(self):
+        """Test print_sorted on empty list"""
+        my_list = MyList()
+        captured = io.StringIO()
+        sys.stdout = captured
+        
+        my_list.print_sorted()
+        
+        sys.stdout = sys.__stdout__
+        output = captured.getvalue().strip()
+        
+        self.assertEqual(output, "[]")
+
+    def test_print_sorted_negative_numbers(self):
+        """Test print_sorted with negative numbers"""
+        my_list = MyList([0, -2, 5, -10])
+        captured = io.StringIO()
+        sys.stdout = captured
+        
+        my_list.print_sorted()
+        
+        sys.stdout = sys.__stdout__
+        output = captured.getvalue().strip()
+        
+        self.assertEqual(output, "[-10, -2, 0, 5]")
+
+    def test_str_method(self):
+        """Test that __str__ works as list does"""
+        my_list = MyList([4, 3, 2])
+        self.assertEqual(str(my_list), "[4, 3, 2]")
 
 if __name__ == "__main__":
-    import sys
-    import pytest
-    sys.exit(pytest.main([__file__]))
+    unittest.main()
