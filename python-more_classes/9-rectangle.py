@@ -6,6 +6,7 @@ capable of calculating area and perimeter, printing the rectangle,
 comparing sizes, and creating square instances.
 """
 
+
 class Rectangle:
     """
     Represents a rectangle shape.
