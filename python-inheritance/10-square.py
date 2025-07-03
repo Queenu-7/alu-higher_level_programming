@@ -7,6 +7,7 @@ It validates the size on instantiation, calculates area, and
 uses Rectangle’s constructor for width and height.
 """
 
+
 Rectangle = __import__('9-rectangle').Rectangle
 
 class Square(Rectangle):
