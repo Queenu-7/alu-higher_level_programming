@@ -7,6 +7,7 @@ It includes validation for width and height using integer_validator,
 calculates area, and provides a custom string representation.
 """
 
+
 class BaseGeometry:
     """
     BaseGeometry class with a method for validating integers.
