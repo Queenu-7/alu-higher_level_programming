@@ -2,8 +2,8 @@
 """
 8-rectangle.py
 
-Defines a Rectangle class that inherits from BaseGeometry.
-Validates width and height using integer_validator.
+This module defines a Rectangle class that inherits from BaseGeometry.
+It validates the width and height using the integer_validator method.
 """
 
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
