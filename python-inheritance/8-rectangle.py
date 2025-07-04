@@ -1,9 +1,6 @@
 #!/usr/bin/python3
 """
-8-rectangle.py
-
-This module defines a Rectangle class that inherits from BaseGeometry.
-It validates the width and height using the integer_validator method.
+This module defines the Rectangle class that inherits from BaseGeometry.
 """
 
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
@@ -11,19 +8,28 @@ BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 class Rectangle(BaseGeometry):
     """
-    Represents a rectangle using validated width and height.
+    Rectangle class with private width and height,
+    validated as positive integers by integer_validator.
     """
 
     def __init__(self, width, height):
         """
-        Initializes a Rectangle with validated width and height.
+        Initialize a Rectangle instance.
 
         Args:
             width (int): The width of the rectangle.
             height (int): The height of the rectangle.
+
+        Raises:
+            TypeError or ValueError if width or height invalid.
         """
         self.integer_validator("width", width)
-        self.__width = width
-
         self.integer_validator("height", height)
+        self.__width = width
         self.__height = height
+
+    def __str__(self):
+        """
+        Return a string representation of the rectangle.
+        """
+        return f"[Rectangle] {self.__width}/{self.__height}"
