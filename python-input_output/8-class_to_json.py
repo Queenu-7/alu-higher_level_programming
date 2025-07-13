@@ -12,6 +12,7 @@ No external modules are imported or used.
 Author: ALU Higher Level Programming
 """
 
+
 def class_to_json(obj):
     """
     Returns the dictionary representation of a simple data structure
@@ -21,6 +22,7 @@ def class_to_json(obj):
         obj: An instance of a class with only serializable attributes.
 
     Returns:
-        dict: A dictionary containing all serializable attributes of the object.
+        dict: A dictionary containing all serializable attributes
+        of the object.
     """
     return obj.__dict__
