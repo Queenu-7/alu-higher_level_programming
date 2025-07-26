@@ -1,13 +1,5 @@
 #!/usr/bin/python3
-"""Fetches https://intranet.hbtn.io/status and displays response details.
-
-The script uses urllib to perform a GET request to the specified URL.
-It then prints:
-    - the type of the response body
-    - the byte content
-    - the UTF-8 decoded content
-"""
-
+"""Fetches https://intranet.hbtn.io/status using urllib and displays response body."""
 import urllib.request
 
 url = 'https://intranet.hbtn.io/status'
