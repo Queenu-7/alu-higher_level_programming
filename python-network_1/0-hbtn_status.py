@@ -1,18 +1,15 @@
 #!/usr/bin/python3
 """
-This script fetches the status of the URL https://alu-intranet.hbtn.io/status
+This script fetches the status of the URL https://intranet.hbtn.io/status
 using the urllib package. It prints:
     - the type of the response body
     - the raw byte content
     - the decoded UTF-8 content
-
-This must be executed using a `with` statement for proper resource handling.
-Only urllib is used, as per requirements.
 """
 
 import urllib.request
 
-url = 'https://alu-intranet.hbtn.io/status'
+url = 'https://intranet.hbtn.io/status'
 
 with urllib.request.urlopen(url) as response:
     body = response.read()
