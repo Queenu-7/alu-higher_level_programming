@@ -1,25 +1,31 @@
 #!/usr/bin/python3
 """
-Module 8-json_api.py
+This module sends a POST request to search for users with a letter parameter
+and displays the results in JSON format, handling various response scenarios.
 """
 
-
 import requests
-from sys import argv
+import sys
 
 
 if __name__ == "__main__":
-    if len(argv) < 2:
-        le = ""
+    if len(sys.argv) > 1:
+        q = sys.argv[1]
     else:
-        le = argv[1]
-    dic = {"q": le}
-    resp = requests.post('http://0.0.0.0:5000/search_user', data=dic)
+        q = ""
+
+    url = "http://0.0.0.0:5000/search_user"
+    data = {'q': q}
+
+    response = requests.post(url, data=data)
+
     try:
-        dic_1 = resp.json()
-        if dic_1:
-            print("[{}] {}".format(dic_1.get('id'), dic_1.get('name')))
+        json_response = response.json()
+        if json_response:
+            user_id = json_response.get('id')
+            user_name = json_response.get('name')
+            print("[{}] {}".format(user_id, user_name))
         else:
             print("No result")
-    except ValueError as e:
+    except ValueError:
         print("Not a valid JSON")
