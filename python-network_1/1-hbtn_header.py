@@ -1,15 +1,17 @@
 #!/usr/bin/python3
 """
-Module 1-hbtn_header.py
+This module sends a request to a URL
+and displays the X-Request-Id header value.
+It takes a URL as a command line argument
+and uses urllib to make the request.
 """
 
-
 import urllib.request
-from sys import argv
+import sys
 
 
 if __name__ == "__main__":
-    req = urllib.request.Request(argv[1])
-    with urllib.request.urlopen(req) as response:
-        data = response.getheader('X-Request-Id')
-        print(data)
+    url = sys.argv[1]
+    with urllib.request.urlopen(url) as response:
+        x_request_id = response.headers.get('X-Request-Id')
+        print(x_request_id)
