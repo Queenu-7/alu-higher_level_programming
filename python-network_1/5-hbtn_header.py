@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 """
-Module 5-hbtn_header.py
+This module sends a request to a URL using the requests package and displays
+the value of the X-Request-Id variable found in the response header.
 """
 
-
-from sys import argv
 import requests
+import sys
 
 
 if __name__ == "__main__":
-    url = argv[1]
-    le = requests.get(url)
-    la = le.headers.get('X-Request-Id')
-    print(la)
+    url = sys.argv[1]
+    response = requests.get(url)
+    x_request_id = response.headers.get('X-Request-Id')
+    print(x_request_id)
