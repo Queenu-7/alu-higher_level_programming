@@ -1,23 +1,19 @@
 #!/usr/bin/python3
-"""
-This script fetches the status of the URL https://alu-intranet.hbtn.io/status
-using the urllib package. It prints:
-    - the type of the response body
-    - the raw byte content
-    - the decoded UTF-8 content
-
-This must be executed using a `with` statement for proper resource handling.
-Only urllib is used, as per requirements.
+"""A script that
+- fetches https://alu-intranet.hbtn.io/status.
+- uses urlib package
 """
 
 import urllib.request
-import sys
 
-url = sys.argv[1] if len(sys.argv) > 1 else 'https://alu-intranet.hbtn.io/status'
+url = 'https://intranet.hbtn.io/status'
+if url.startswith('https://'):
+    url = 'https://alu-intranet.hbtn.io/status'
 
-with urllib.request.urlopen(url) as response:
-    body = response.read()
-    print("Body response:")
-    print("\t- type:", type(body))
-    print("\t- content:", body)
-    print("\t- utf8 content:", body.decode('utf-8'))
+if __name__ == '__main__':
+    with urllib.request.urlopen(url) as res:
+        content = res.read()
+        print("Body response:")
+        print("\t- type: {}".format(type(content)))
+        print("\t- content: {}".format(content))
+        print("\t- utf8 content: {}".format(content.decode('utf-8')))
