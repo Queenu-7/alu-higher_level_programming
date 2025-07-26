@@ -11,8 +11,9 @@ Only urllib is used, as per requirements.
 """
 
 import urllib.request
+import sys
 
-url = 'https://alu-intranet.hbtn.io/status'
+url = sys.argv[1] if len(sys.argv) > 1 else 'https://alu-intranet.hbtn.io/status'
 
 with urllib.request.urlopen(url) as response:
     body = response.read()
