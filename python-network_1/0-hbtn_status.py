@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-"""
-This script fetches the status of the URL https://intranet.hbtn.io/status
-using the urllib package. It prints:
+"""Fetches https://intranet.hbtn.io/status and displays response details.
+
+The script uses urllib to perform a GET request to the specified URL.
+It then prints:
     - the type of the response body
-    - the raw byte content
-    - the decoded UTF-8 content
+    - the byte content
+    - the UTF-8 decoded content
 """
 
 import urllib.request
