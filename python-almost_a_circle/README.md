@@ -1,1 +1,1 @@
-This is a description of python a circle
+This a description of python almost a circle
